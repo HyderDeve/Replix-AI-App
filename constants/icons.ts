@@ -16,6 +16,8 @@ import plus from "@/assets/icons/plus.png";
 import setting from "@/assets/icons/setting.png";
 import spotify from "@/assets/icons/spotify.png";
 import wallet from "@/assets/icons/wallet.png";
+import dashboard from '@/assets/icons/dashboard.png';
+import upload from '@/assets/icons/upload.png';
 
 export const icons = {
     home,
@@ -36,6 +38,8 @@ export const icons = {
     github,
     claude,
     canva,
+    dashboard,
+    upload,
 } as const;
 
 export type IconKey = keyof typeof icons;
