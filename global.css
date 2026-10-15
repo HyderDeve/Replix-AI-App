@@ -63,6 +63,22 @@
     @utility tabs-glyph {
         @apply size-6;
     }
+    @utility list-head {
+        @apply my-5 flex-row items-center justify-between;
+    }
+
+    @utility list-title {
+        @apply text-2xl font-sans-bold text-primary;
+    }
+
+    @utility list-action {
+        @apply rounded-full border border-black/20 px-4 py-1;
+    }
+
+    @utility list-action-text {
+        @apply text-lg font-sans-semibold text-primary;
+    }
+
 
 @layer components {
 

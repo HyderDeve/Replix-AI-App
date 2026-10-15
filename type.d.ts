@@ -11,6 +11,19 @@ declare global {
         focused: boolean;
         icon: ImageSourcePropType;
     }
+    interface ButtonHeadingProps {
+        title: string;
+    }
+
+    
+    interface Plan {
+    id: string;
+    name: string;
+    tagline: string;
+    price: string;
+    popular: boolean;
+    features: string[];
+    };
 }
 
 export {};
