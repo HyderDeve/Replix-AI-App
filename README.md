@@ -42,7 +42,7 @@ This project is developed with **Expo Go only**. Don't use development builds, A
 ## Useful commands
 
 ```bash
-bunx expo lint              # lint
+bunx expo start              # start the dev server
 bunx tsc --noEmit           # typecheck
 bunx expo-doctor            # diagnose dependency and config issues
 bunx expo install <package> # add a package (use this instead of `bun add`)
