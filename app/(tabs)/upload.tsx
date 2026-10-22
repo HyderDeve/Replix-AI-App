@@ -11,6 +11,7 @@ const Upload = () => {
 
   const tabBarHeight = useBottomTabBarHeight();
 
+  
 
   return (
     <SafeAreaView className="flex-1 bg-background" edges={["top"]}>
