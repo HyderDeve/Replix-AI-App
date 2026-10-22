@@ -20,10 +20,19 @@ A mobile app built with [Expo](https://expo.dev) and React Native.
 1. Install dependencies
 
    ```bash
+   npm install
+   ```
+   or 
+
+   ```bash
    bun install
    ```
 
 2. Start the dev server
+
+   ```bash
+   npx expo start
+   ```
 
    ```bash
    bunx expo start
@@ -53,5 +62,5 @@ Run lint and typecheck before committing.
 
 ## Project structure
 
-- `src/app/` contains the routes. Every file is a screen, and `_layout.tsx` files define navigators.
+- `app/` contains the routes. Every file is a screen, and `_layout.tsx` files define navigators.
 - Keep non-route code (components, hooks, utils) outside `src/app/`.
