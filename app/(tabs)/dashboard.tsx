@@ -139,12 +139,15 @@ const RecentTile = ({ item }: { item: Recent }) => (
 /* ---------- Screen ---------- */
 
 const Dashboard = () => {
+  
   const isDark = useColorScheme() === "dark";
   const toggleTheme = () => Appearance.setColorScheme(isDark ? "light" : "dark");
+  const DARK_BG = "#0a1020";
 
   return (
     <SafeAreaView
-      className="flex-1 bg-background dark:bg-[#0a1020]"
+      className="flex-1"
+      style={{ backgroundColor: isDark ? DARK_BG : colors.background }}
       edges={["top"]}
     >
       <ScrollView
