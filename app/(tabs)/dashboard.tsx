@@ -1,19 +1,22 @@
 import { colors } from "@/constants/theme";
-import { LinearGradient } from "expo-linear-gradient";
-import { Moon, Play, Sun } from "lucide-react-native";
+import { Moon, Sun } from "lucide-react-native";
 import { useEffect } from "react";
-import { Appearance, Image, Pressable, ScrollView, Text, useColorScheme, View } from "react-native";
+import { Appearance, Pressable, ScrollView, Text, useColorScheme, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import {USER_NAME, BRAND, CREDITS, STUDIOS, RECENTS} from '@/constants/data';
+import { USER_NAME, BRAND, CREDITS, STUDIOS, RECENTS } from '@/constants/data';
+
+import Card from '@/components/Card';
+import StudioCard from '@/components/StudioCard';
+import RecentTile from "@/components/RecentTile";
 
 /* ---------- Theme toggle ---------- */
 
 const TRACK_TRAVEL = 22;
 
-function ThemeToggle({ isDark, onToggle }: { isDark: boolean; onToggle: () => void;}) {
-  
+function ThemeToggle({ isDark, onToggle }: { isDark: boolean; onToggle: () => void; }) {
+
   const x = useSharedValue(isDark ? TRACK_TRAVEL : 0);
 
   useEffect(() => {
@@ -63,83 +66,10 @@ function ThemeToggle({ isDark, onToggle }: { isDark: boolean; onToggle: () => vo
   );
 }
 
-/* ---------- Small building blocks ---------- */
-
-const Card = ({className = "", children}: {className?: string; children: React.ReactNode;}) => (
-  
-  <View
-    className={`rounded-[20px] border border-border bg-card dark:border-white/10 dark:bg-[#131c36] ${className}`}
-  >
-    {children}
-  </View>
-);
-
-const StudioCard = ({ studio }: { studio: Studio }) => (
-  <Pressable accessibilityRole="button" accessibilityLabel={studio.title}>
-    <Card className="flex-row items-center gap-3 p-2.5">
-      {studio.image ? (
-        <Image
-          source={studio.image}
-          style={{ width: 84, height: 72, borderRadius: 12 }}
-          resizeMode="cover"
-        />
-      ) : (
-        <View
-          style={{ width: 84, height: 72, borderRadius: 12 }}
-          className="items-center justify-center bg-primary-dark"
-        >
-          <View className="size-8.5 items-center justify-center rounded-full bg-accent">
-            <Play size={14} color={colors.primaryDark} fill={colors.primaryDark} />
-          </View>
-        </View>
-      )}
-      <View className="flex-1">
-        <Text className="font-sans-bold text-[15px] text-foreground dark:text-[#f3f5fb]">
-          {studio.title}
-        </Text>
-        <Text className="mt-0.5 font-sans text-xs leading-4.25 text-muted-foreground dark:text-[#a9b3cc]">
-          {studio.description}
-        </Text>
-      </View>
-    </Card>
-  </Pressable>
-);
-
-const RecentTile = ({ item }: { item: Recent }) => (
-  <Pressable
-    accessibilityRole="button"
-    accessibilityLabel={`${item.type}: ${item.name}`}
-    style={{ width: 120, height: 150, borderRadius: 16, overflow: "hidden" }}
-    className="bg-muted dark:bg-[#1b2647]"
-  >
-    <Image
-      source={item.image}
-      style={{ width: "100%", height: "100%" }}
-      resizeMode="cover"
-    />
-    <LinearGradient
-      colors={["rgba(0,0,0,0)", "rgba(0,0,0,0.7)"]}
-      locations={[0.45, 1]}
-      style={{ position: "absolute", left: 0, right: 0, top: 0, bottom: 0 }}
-    />
-    <View className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.75">
-      <Text className="font-sans-bold text-[10px] text-foreground">
-        {item.type}
-      </Text>
-    </View>
-    <Text
-      numberOfLines={1}
-      className="absolute bottom-2.25 left-2.5 right-2.5 font-sans-semibold text-[11px] text-on-dark"
-    >
-      {item.name}
-    </Text>
-  </Pressable>
-);
-
 /* ---------- Screen ---------- */
 
 const Dashboard = () => {
-  
+
   const isDark = useColorScheme() === "dark";
   const toggleTheme = () => Appearance.setColorScheme(isDark ? "light" : "dark");
   const DARK_BG = "#0a1020";
