@@ -2,65 +2,11 @@ import { colors } from "@/constants/theme";
 import { LinearGradient } from "expo-linear-gradient";
 import { Moon, Play, Sun } from "lucide-react-native";
 import { useEffect } from "react";
-import { Appearance, Image, ImageSourcePropType, Pressable, ScrollView, Text, useColorScheme, View } from "react-native";
+import { Appearance, Image, Pressable, ScrollView, Text, useColorScheme, View } from "react-native";
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import adScene1 from "@/assets/ad-scene-1.jpg";
-import adScene2 from "@/assets/ad-scene-2.jpg";
-import adScene3 from "@/assets/ad-scene-3.jpg";
-import chocolateRaspberry from "@/assets/product-chocolate-raspberry.jpg";
-import cookieDough from "@/assets/product-cookie-dough.jpg";
-import whiteMocha from "@/assets/product-white-mocha.jpg";
-
-/* ---------- Placeholder data (swap for real data later) ---------- */
-
-const USER_NAME = "Sufyan";
-const BRAND = { initials: "KL", name: "Krow Labs" };
-const CREDITS = { used: 1818, limit: 100, plan: "Pro" };
-
-type Studio = {
-  id: string;
-  title: string;
-  description: string;
-  image?: ImageSourcePropType;
-};
-
-const STUDIOS: Studio[] = [
-  {
-    id: "photo",
-    title: "Photo Studio",
-    description: "Product photoshoots from templates or your own scene.",
-    image: chocolateRaspberry,
-  },
-  {
-    id: "ad",
-    title: "Ad Studio",
-    description: "Static ad creatives from one product.",
-    image: adScene1,
-  },
-  {
-    id: "video",
-    title: "Video Studio",
-    description: "UGC ads, product shorts and story ads.",
-  },
-];
-
-type Recent = {
-  id: string;
-  type: "Ad" | "Photo";
-  name: string;
-  image: ImageSourcePropType;
-};
-
-const RECENTS: Recent[] = [
-  { id: "1", type: "Ad", name: "Ad scene 1", image: adScene1 },
-  { id: "2", type: "Photo", name: "White mocha", image: whiteMocha },
-  { id: "3", type: "Ad", name: "Ad scene 2", image: adScene2 },
-  { id: "4", type: "Photo", name: "Choc raspberry", image: chocolateRaspberry },
-  { id: "5", type: "Photo", name: "Cookie dough", image: cookieDough },
-  { id: "6", type: "Ad", name: "Ad scene 3", image: adScene3 },
-];
+import {USER_NAME, BRAND, CREDITS, STUDIOS, RECENTS} from '@/constants/data';
 
 /* ---------- Theme toggle ---------- */
 
@@ -119,13 +65,8 @@ function ThemeToggle({ isDark, onToggle }: { isDark: boolean; onToggle: () => vo
 
 /* ---------- Small building blocks ---------- */
 
-const Card = ({
-  className = "",
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => (
+const Card = ({className = "", children}: {className?: string; children: React.ReactNode;}) => (
+  
   <View
     className={`rounded-[20px] border border-border bg-card dark:border-white/10 dark:bg-[#131c36] ${className}`}
   >
