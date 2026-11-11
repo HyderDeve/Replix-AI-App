@@ -1,10 +1,14 @@
-import { View, Text } from "react-native"
+import { Text } from "react-native"
 import {SafeAreaView} from "react-native-safe-area-context"
 
-export default function Settings() {
+const Settings = () => {
     return (
         <SafeAreaView>
-            <Text>Settings</Text>
+            <Text className="text-2xl items-center text-center">
+                Settings
+            </Text>
         </SafeAreaView>
     )
 }
+
+export default Settings
