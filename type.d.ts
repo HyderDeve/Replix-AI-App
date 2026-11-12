@@ -14,6 +14,20 @@ declare global {
     interface ButtonHeadingProps {
         title: string;
     }
+   
+    interface Studio {
+        id: string;
+        title: string;
+        description: string;
+        image?: ImageSourcePropType;
+    }
+
+    interface Recent {
+        id: string;
+        type: "Ad" | "Photo";
+        name: string;
+        image: ImageSourcePropType;
+    }
 
     
     interface Plan {

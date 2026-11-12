@@ -1,6 +1,9 @@
 import "@/global.css";
 import { Redirect } from "expo-router";
 
-export default function Page() {
+const Index = () => {
   return <Redirect href="/(tabs)" />;
 }
+
+
+export default Index;
