@@ -4,7 +4,7 @@ A mobile app built with [Expo](https://expo.dev) and React Native.
 
 ## Tech stack
 
-- Expo SDK 57 with [Expo Router](https://docs.expo.dev/router/introduction) (file-based routing)
+- Expo SDK 58 with [Expo Router](https://docs.expo.dev/router/introduction) (file-based routing)
 - NativeWind v5 / Tailwind CSS v4
 - React Native Reanimated, Gesture Handler, Screens
 - Stripe React Native
