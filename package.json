@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@expo/ui": "~58.0.27",
+    "@react-navigation/bottom-tabs": "^7.21.0",
     "@stripe/stripe-react-native": "0.81.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@tanstack/react-start": "^1.169.2",
