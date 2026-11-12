@@ -5,14 +5,16 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 
 
-export default function App() {
+const App = () => {
   
   
   return (
-    <SafeAreaView className="flex-1 items-center justify-center bg-background">
-      <Text className="text-xl font-bold text-success">
+    <SafeAreaView className="flex-1 justify-center bg-background">
+      <Text className="text-xl font-bold items-center text-center text-success">
         Welcome to Nativewind!
       </Text>
     </SafeAreaView>
   );
 }
+
+export default App;

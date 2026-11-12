@@ -59,6 +59,21 @@ declare global {
     buttonLabel?: string;
     };
 
+    interface MiniSwitchProps {
+      value: boolean;
+      onValueChange: (next: boolean) => void;
+      label: string;
+    };
+    
+    type SettingsRowProps = {
+      icon: LucideIcon;
+      label: string;
+      value?: string; // small muted text shown before the chevron
+      right?: ReactNode; // custom control (switch, toggle) instead of a chevron
+      onPress?: () => void;
+    };
+
+
 }
 
 export {};
