@@ -1,4 +1,11 @@
 import {icons} from "./icons";
+import adScene1 from "@/assets/ad-scene-1.jpg";
+import adScene2 from "@/assets/ad-scene-2.jpg";
+import adScene3 from "@/assets/ad-scene-3.jpg";
+import chocolateRaspberry from "@/assets/product-chocolate-raspberry.jpg";
+import cookieDough from "@/assets/product-cookie-dough.jpg";
+import whiteMocha from "@/assets/product-white-mocha.jpg";
+
 
 export const tabs: AppTab[] = [
     { name: "index", title: "Home", icon: icons.home },
@@ -56,3 +63,38 @@ export const PLANS: Plan[] = [
     ],
   },
 ]
+
+
+export const USER_NAME = "Sufyan";
+export const BRAND = { initials: "KL", name: "Krow Labs" };
+export const CREDITS = { used: 1818, limit: 100, plan: "Pro" };
+
+export const STUDIOS: Studio[] = [
+  {
+    id: "photo",
+    title: "Photo Studio",
+    description: "Product photoshoots from templates or your own scene.",
+    image: chocolateRaspberry,
+  },
+  {
+    id: "ad",
+    title: "Ad Studio",
+    description: "Static ad creatives from one product.",
+    image: adScene1,
+  },
+  {
+    id: "video",
+    title: "Video Studio",
+    description: "UGC ads, product shorts and story ads.",
+  },
+];
+
+
+export const RECENTS: Recent[] = [
+  { id: "1", type: "Ad", name: "Ad scene 1", image: adScene1 },
+  { id: "2", type: "Photo", name: "White mocha", image: whiteMocha },
+  { id: "3", type: "Ad", name: "Ad scene 2", image: adScene2 },
+  { id: "4", type: "Photo", name: "Choc raspberry", image: chocolateRaspberry },
+  { id: "5", type: "Photo", name: "Cookie dough", image: cookieDough },
+  { id: "6", type: "Ad", name: "Ad scene 3", image: adScene3 },
+];
