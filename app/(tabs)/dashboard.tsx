@@ -1,5 +1,5 @@
-import { colors } from "@/constants/theme";
-import { Appearance, Pressable, ScrollView, Text, useColorScheme, View } from "react-native";
+// import { colors } from "@/constants/theme";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { USER_NAME, BRAND, CREDITS, STUDIOS, RECENTS } from '@/constants/data';
@@ -8,19 +8,18 @@ import Card from '@/components/Card';
 import StudioCard from '@/components/StudioCard';
 import RecentTile from "@/components/RecentTile";
 import ThemeToggle from "@/components/ThemeToggle";
-
+import ScreenHeader from "@/components/ScreenHeader";
+import useAppTheme  from "@/hooks/useAppTheme";
 
 
 const Dashboard = () => {
 
-  const isDark = useColorScheme() === "dark";
-  const toggleTheme = () => Appearance.setColorScheme(isDark ? "light" : "dark");
-  const DARK_BG = "#0a1020";
+  const { background } = useAppTheme();
 
   return (
     <SafeAreaView
       className="flex-1"
-      style={{ backgroundColor: isDark ? DARK_BG : colors.background }}
+      style={{ backgroundColor: background }}
       edges={["top"]}
     >
       <ScrollView
@@ -28,17 +27,14 @@ const Dashboard = () => {
         showsVerticalScrollIndicator={false}
       >
         {/* Header */}
-        <View className="flex-row items-center justify-between">
-          <View className="flex-row items-center gap-2">
+        <ScreenHeader
+          title="Replix AI"
+          left={
             <View className="size-7.5 items-center justify-center rounded-[9px] bg-primary-dark">
               <Text className="font-sans-extrabold text-base text-on-dark">R</Text>
             </View>
-            <Text className="font-sans-bold text-[19px] text-primary-dark dark:text-[#f3f5fb]">
-              Replix AI
-            </Text>
-          </View>
-          <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
-        </View>
+          }
+        />
 
         {/* Greeting */}
         <View>

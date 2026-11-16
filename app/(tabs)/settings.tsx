@@ -15,7 +15,7 @@ import {
 } from "lucide-react-native";
 import { router } from "expo-router";
 import { useState } from "react";
-import { Appearance, Pressable, ScrollView, Text, useColorScheme, View } from "react-native";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import Card from "@/components/Card";
@@ -23,30 +23,30 @@ import MiniSwitch from "@/components/MiniSwitch";
 import SettingsGroup from "@/components/SettingsGroup";
 import SettingsRow from "@/components/SettingsRow";
 import ThemeToggle from "@/components/ThemeToggle";
+import ScreenHeader from "@/components/ScreenHeader";
+import  useAppTheme from "@/hooks/useAppTheme";
 
 // Placeholder profile data (swap for real user data later)
 const USER_INITIALS = "SF";
 const USER_EMAIL = "sufyan@krowlabs.com";
 
 const Settings = () => {
-  const isDark = useColorScheme() === "dark";
-  const DARK_BG = "#0a1020";
 
+  const { isDark, toggleTheme, background } = useAppTheme();
   const [notifications, setNotifications] = useState(true);
 
-  // react-native-web has no Appearance.setColorScheme, so guard the call.
-  const toggleTheme = () => Appearance.setColorScheme?.(isDark ? "light" : "dark");
-
+  
   return (
     <SafeAreaView
       className="flex-1"
-      style={{ backgroundColor: isDark ? DARK_BG : colors.background }}
+      style={{ backgroundColor: background }}
       edges={["top"]}
     >
       <ScrollView
         contentContainerClassName="gap-[22px] px-5 pb-40 pt-4"
         showsVerticalScrollIndicator={false}
       >
+        <ScreenHeader />
         {/* Heading */}
         <View>
           <Text className="font-sans-extrabold text-[28px] tracking-tight text-primary-dark dark:text-[#f3f5fb]">
