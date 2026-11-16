@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ScrollView, View } from "react-native";
+import { ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { UploadBox, UrlBox } from "@/components/Upload";
 import { icons } from "@/constants/icons";
