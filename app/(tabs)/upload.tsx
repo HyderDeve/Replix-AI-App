@@ -4,11 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { UploadBox, UrlBox } from "@/components/Upload";
 import { icons } from "@/constants/icons";
 import { useBottomTabBarHeight } from "expo-router/tabs";
+import ScreenHeader from "@/components/ScreenHeader";
+import  useAppTheme  from "@/hooks/useAppTheme";
 
 const Upload = () => {
   
   const [url, setUrl] = useState("");
-
+  const { background } = useAppTheme();
   const tabBarHeight = useBottomTabBarHeight();
 
   
@@ -24,6 +26,7 @@ const Upload = () => {
           paddingBottom: tabBarHeight + 60, // space under the last card
         }}
       >
+        <ScreenHeader />
         <UploadBox
           image={require("@/assets/images/product.png")}
           icon={icons.upload}
