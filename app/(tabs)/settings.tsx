@@ -61,7 +61,7 @@ const Settings = () => {
         <Pressable
           accessibilityRole="button"
           accessibilityLabel="Edit profile"
-          onPress={() => router.navigate('/profile')}
+          onPress={() => console.log('Open Profile')}
         >
           <Card className="flex-row items-center gap-3 p-3.5">
             <View className="size-13 items-center justify-center rounded-full bg-primary-dark">
