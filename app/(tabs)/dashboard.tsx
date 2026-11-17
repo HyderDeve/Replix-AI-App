@@ -7,7 +7,6 @@ import { USER_NAME, BRAND, CREDITS, STUDIOS, RECENTS } from '@/constants/data';
 import Card from '@/components/Card';
 import StudioCard from '@/components/StudioCard';
 import RecentTile from "@/components/RecentTile";
-import ThemeToggle from "@/components/ThemeToggle";
 import ScreenHeader from "@/components/ScreenHeader";
 import useAppTheme  from "@/hooks/useAppTheme";
 
