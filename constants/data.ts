@@ -67,7 +67,7 @@ export const PLANS: Plan[] = [
 
 export const USER_NAME = "Sufyan";
 export const BRAND = { initials: "KL", name: "Krow Labs" };
-export const CREDITS = { used: 1818, limit: 100, plan: "Pro" };
+export const CREDITS = { used: 100, limit: 100, plan: "Pro" };
 
 export const STUDIOS: Studio[] = [
   {

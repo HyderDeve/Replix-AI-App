@@ -74,6 +74,24 @@ declare global {
     };
 
 
+    interface UserProfile {
+      name: string;
+      email: string;
+      imageUri?: string; // remote/local picture; initials are shown when missing
+    }
+
+    interface ProfileProps extends UserProfile {
+      plan: string;
+      onPress?: () => void; // makes the card tappable (e.g. open the edit sheet)
+    }
+
+    interface ProfileEditModalProps {
+      visible: boolean;
+      profile: UserProfile;
+      onClose: () => void;
+      onSave: (next: UserProfile) => void;
+    }
+
 }
 
 export {};
