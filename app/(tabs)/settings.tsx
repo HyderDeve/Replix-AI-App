@@ -2,7 +2,6 @@ import { colors } from "@/constants/theme";
 import { BRAND, CREDITS, USER_NAME } from "@/constants/data";
 import {
   Bell,
-  ChevronRight,
   CirclePlus,
   CircleQuestionMark,
   FileText,
@@ -24,16 +23,19 @@ import SettingsGroup from "@/components/SettingsGroup";
 import SettingsRow from "@/components/SettingsRow";
 import ThemeToggle from "@/components/ThemeToggle";
 import ScreenHeader from "@/components/ScreenHeader";
+import Profile from "@/components/Profile";
+import ProfileEditModal from "@/components/ProfileEditModal";
 import  useAppTheme from "@/hooks/useAppTheme";
 
 // Placeholder profile data (swap for real user data later)
-const USER_INITIALS = "SF";
 const USER_EMAIL = "sufyan@krowlabs.com";
 
 const Settings = () => {
 
   const { isDark, toggleTheme, background } = useAppTheme();
   const [notifications, setNotifications] = useState(true);
+  const [profile, setProfile] = useState<UserProfile>({ name: USER_NAME, email: USER_EMAIL });
+  const [isProfileModalVisible, setProfileModalVisible] = useState(false);
 
   
   return (
@@ -58,31 +60,13 @@ const Settings = () => {
         </View>
 
         {/* Profile */}
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Edit profile"
-          onPress={() => console.log("open profile")}
-        >
-          <Card className="flex-row items-center gap-3 p-3.5">
-            <View className="size-13 items-center justify-center rounded-full bg-primary-dark">
-              <Text className="font-sans-bold text-base text-on-dark">{USER_INITIALS}</Text>
-            </View>
-            <View className="flex-1">
-              <View className="flex-row items-center gap-2">
-                <Text className="font-sans-bold text-base text-foreground dark:text-[#f3f5fb]">
-                  {USER_NAME}
-                </Text>
-                <View className="rounded-full bg-success/15 px-2 py-0.75">
-                  <Text className="font-sans-bold text-[10px] text-success">{CREDITS.plan}</Text>
-                </View>
-              </View>
-              <Text className="mt-0.5 font-sans text-xs text-muted-foreground dark:text-[#a9b3cc]">
-                {USER_EMAIL}
-              </Text>
-            </View>
-            <ChevronRight size={18} color={isDark ? "#a9b3cc" : colors.mutedForeground} />
-          </Card>
-        </Pressable>
+        <Profile
+          name={profile.name}
+          email={profile.email}
+          imageUri={profile.imageUri}
+          plan={CREDITS.plan}
+          onPress={() => setProfileModalVisible(true)}
+        />
 
         {/* Current plan */}
         <View className="flex-row items-center justify-between gap-3 rounded-[20px] border border-transparent bg-primary-dark p-4 dark:border-white/10">
@@ -192,6 +176,13 @@ const Settings = () => {
           Replix AI · v1.0.0
         </Text>
       </ScrollView>
+
+      <ProfileEditModal
+        visible={isProfileModalVisible}
+        profile={profile}
+        onClose={() => setProfileModalVisible(false)}
+        onSave={setProfile}
+      />
     </SafeAreaView>
   );
 };
