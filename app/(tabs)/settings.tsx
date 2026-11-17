@@ -1,5 +1,5 @@
 import { colors } from "@/constants/theme";
-import { BRAND, CREDITS, USER_NAME } from "@/constants/data";
+import { BRAND, CREDITS, USER_NAME, USER_EMAIL } from "@/constants/data";
 import {
   Bell,
   CirclePlus,
@@ -28,7 +28,7 @@ import ProfileEditModal from "@/components/ProfileEditModal";
 import  useAppTheme from "@/hooks/useAppTheme";
 
 // Placeholder profile data (swap for real user data later)
-const USER_EMAIL = "sufyan@krowlabs.com";
+
 
 const Settings = () => {
 
